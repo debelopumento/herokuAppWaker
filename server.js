@@ -29,7 +29,7 @@ const wakeHerokuApps = () => {
     urls.forEach(url => {
         request(url,  (error, response, body) => {
           if (!error && response.statusCode == 200) {
-            console.log(response) 
+            console.log('poking ', url, response) 
           }
         })
     })
@@ -42,9 +42,10 @@ const checkTime = () => {
 
     //PST 5 - 20 is UDT 12pm - 3am => UDT 0-3 && 12-24
     if (UDT_hr <= 3 || UDT_hr >=12) {
+        console.log(now, ', poking apps.')
         //every day, from 12 pm to 3 am, wake Herokuapp every hr.
         //3600000 = 1hr
-        setInterval(wakeHerokuApps, 3600000);
+        setInterval(wakeHerokuApps, 300000);
     }
 }
 
