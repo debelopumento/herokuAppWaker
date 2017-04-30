@@ -1,9 +1,11 @@
+
 const express = require('express');
 const cors = require('cors');
 
 PORT = process.env.PORT || 8080;
 
 const app = express();
+
 app.use(cors());
 
 app.get('/', (req, res) => {
@@ -13,9 +15,9 @@ app.get('/', (req, res) => {
 app.use('*', function(req, res) {
     res.status(404).json({ message: 'Not Found' });
 });
+var request = require('request');
 
 const wakeHerokuApps = () => {
-    var request = require('request');
     const urls = [
         'https://virtual-flashcards.herokuapp.com',
         'https://diye.herokuapp.com',
