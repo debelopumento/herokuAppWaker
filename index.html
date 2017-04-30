@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+  <title>Heroku App Waker</title>
+</head>
+<body>
+ test
+
+ <script type="text/javascript">
+ 	console.log('hello, world')
+ 	const urls = [
+ 		'https://virtual-flashcards.herokuapp.com',
+ 		'https://diye.herokuapp.com',
+ 		'https://bill-split-app.herokuapp.com',
+ 		'https://is-it-getting-hotter.herokuapp.com',
+ 		'https://cryptic-atoll-29351.herokuapp.com' //jump phaser game
+ 	]
+ 	
+ 	urls.forEach(url=>{
+ 		$.ajax({
+	 		url: url,
+	 		success: ()=>{
+	 			console.log(2)
+	 		}
+	 	})
+ 	})
+</script>
+
+</body>
+</html>
