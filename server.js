@@ -21,7 +21,8 @@ const wakeHerokuApps = () => {
         'https://diye.herokuapp.com',
         'https://bill-split-app.herokuapp.com',
         'https://is-it-getting-hotter.herokuapp.com',
-        'https://cryptic-atoll-29351.herokuapp.com' //jump phaser game
+        'https://cryptic-atoll-29351.herokuapp.com', //jump phaser game
+        'https://heroku-app-poker.herokuapp.com/'
     ]
     urls.forEach(url => {
         request(url,  (error, response, body) => {
@@ -46,6 +47,7 @@ const checkTime = () => {
 }
 
 //checkTime every 15 minutes
+wakeHerokuApps()
 checkTime()
 const interval = 1000 * 60 * 15
 setInterval(checkTime, interval)
