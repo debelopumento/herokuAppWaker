@@ -39,12 +39,14 @@ const wakeHerokuApps = () => {
 }
 
 const checkTime = () => {
-    const now = String(new Date())
-    const UDT_hr = Number(now.slice(11, 13))
-
+    const now = new Date()
+    console.log(1, new Date())
+    const nowString = String(now)
+    const UDT_hr = Number(nowString.slice(11, 13))
+    console.log(10, now, 11, nowString, 12, UDT_hr)
     //PST 5 - 20 is UDT 12pm - 3am => UDT 0-3 && 12-24
     if (UDT_hr <= 3 || UDT_hr >=12) {
-        console.log(now, ', poking apps.')
+        console.log(nowString, ', poking apps.')
         //every day, from 12 pm to 3 am, wake Herokuapp.
         wakeHerokuApps()
     } else {
