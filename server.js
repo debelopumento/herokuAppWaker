@@ -47,6 +47,8 @@ const checkTime = () => {
         console.log(now, ', poking apps.')
         //every day, from 12 pm to 3 am, wake Herokuapp.
         wakeHerokuApps()
+    } else {
+        console.log('Off hour. Apps are asleep.')
     }
 }
 
