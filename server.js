@@ -42,15 +42,15 @@ const checkTime = () => {
     const now = new Date()
     console.log(1, new Date())
     const nowString = String(now)
-    const UDT_hr = Number(nowString.slice(11, 13))
+    const UDT_hr = Number(nowString.slice(16, 18))
     console.log(10, now, 11, nowString, 12, UDT_hr)
     //PST 5 - 20 is UDT 12pm - 3am => UDT 0-3 && 12-24
-    if (UDT_hr <= 3 || UDT_hr >=12) {
-        console.log(nowString, ', poking apps.')
+    if (UDT_hr <= 5 || UDT_hr >=20) {
+        console.log('nowString: ', nowString, ', UDT_hr: ', UDT_hr, ', poking apps.')
         //every day, from 12 pm to 3 am, wake Herokuapp.
         wakeHerokuApps()
     } else {
-        console.log('Off hour. Apps are asleep.')
+        console.log('nowString: ', nowString, ', UDT_hr: ', UDT_hr, 'Off hour. Apps are asleep.')
     }
 }
 
