@@ -29,13 +29,11 @@ const wakeHerokuApps = () => {
     urls.forEach(url => {
         request(url,  (error, response, body) => {
             console.log('poking ', url) 
-
           if (!error && response.statusCode == 200) {
             console.log('successfully poked ', url)
           }
         })
     })
-    
 }
 
 const checkTime = () => {
@@ -45,12 +43,16 @@ const checkTime = () => {
     const UDT_hr = Number(nowString.slice(16, 18))
     console.log(10, now, 11, nowString, 12, UDT_hr)
     //PST 5 - 20 is UDT 12pm - 3am => UDT 0-3 && 12-24
-    if (UDT_hr <= 3 || UDT_hr >=12) {
+    if (UDT_hr < 3 || UDT_hr >=12) {
         console.log('nowString: ', nowString, ', UDT_hr: ', UDT_hr, ', poking apps.')
         //every day, from 12 pm to 3 am, wake Herokuapp.
         wakeHerokuApps()
     } else {
         console.log('nowString: ', nowString, ', UDT_hr: ', UDT_hr, 'Off hour. Apps are asleep.')
+        selfUlr = 'https://debelopumento.herokuapp.com/'
+        request(url, (err, response, body) => {
+            console.log('poking self')
+        })
     }
 }
 
@@ -59,8 +61,6 @@ wakeHerokuApps()
 checkTime()
 const interval = 1000 * 60 * 15
 setInterval(checkTime, interval)
-
-
 
 let server;
 
