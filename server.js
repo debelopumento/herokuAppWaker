@@ -50,7 +50,7 @@ const checkTime = () => {
     } else {
         console.log('nowString: ', nowString, ', UDT_hr: ', UDT_hr, 'Off hour. Apps are asleep.')
         selfUlr = 'https://debelopumento.herokuapp.com/'
-        request(url, (err, response, body) => {
+        request(selfUlr, (err, response, body) => {
             console.log('poking self')
         })
     }
