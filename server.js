@@ -49,8 +49,8 @@ const checkTime = () => {
         wakeHerokuApps()
     } else {
         console.log('nowString: ', nowString, ', UDT_hr: ', UDT_hr, 'Off hour. Apps are asleep.')
-        selfUlr = 'https://debelopumento.herokuapp.com/'
-        request(selfUlr, (err, response, body) => {
+        selfUrl = 'https://heroku-app-poker.herokuapp.com/'
+        request(selfUrl, (err, response, body) => {
             console.log('poking self')
         })
     }
